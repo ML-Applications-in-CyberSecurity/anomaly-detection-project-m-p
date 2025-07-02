@@ -1,6 +1,12 @@
+import json
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
+import joblib
+
+model = joblib.load('anomaly_model.joblib')
 
 def visualize_pca(train_json: str, log_csv: str):
     import json as _json
@@ -31,4 +37,4 @@ def visualize_pca(train_json: str, log_csv: str):
     plt.legend()
     plt.tight_layout()
     plt.show()
-    visualize_pca('dataset/training_data.json', 'logs/anomalies.csv')
+visualize_pca('dataset/training_data.json', 'logs/anomalies.csv')
